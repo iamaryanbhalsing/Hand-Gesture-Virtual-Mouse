@@ -160,7 +160,81 @@ You can easily extend this:
 The result is a fast, intuitive virtual mouse controlled entirely by hand gestures.
 
 
+Imports:
+
+cv2 for webcam and drawing.
+
+numpy for math and distances.
+
+pyautogui to control the mouse cursor (move, click).
+
+mediapipe and mediapipe.tasks for hand tracking and landmarks.
+
+Model loading:
+
+Read hand_landmarker.task into memory (model_asset_buffer), then create a HandLandmarker detector.
+
+This is the official way to run the Hand Landmarker task in Python.
+
+Main loop:
+
+Capture frame, flip, convert to RGB.
+
+Run detect_for_video to get hand landmarks.
+
+Use landmark 8 as the cursor fingertip and landmark 4 as the thumb fingertip.
+
+Coordinate mapping:
+
+Take camera coordinates (x, y) from the index fingertip.
+
+Clamp them to a central box (to increase sensitivity).
+
+Use np.interp to map that box to full screen width and height.
+
+Smoothing and movement:
+
+alpha_x and alpha_y create a weighted average between old and new positions (exponential smoothing).
+
+Horizontal uses higher alpha_x → faster response / gaming style.
+
+Vertical uses lower alpha_y → smoother, less jitter.
+
+Call pyautogui.moveTo(curr_x, curr_y) to move the OS cursor.
+
+Gesture detection:
+
+Compute Euclidean distance between thumb and index fingertip.
+
+If distance below threshold and cooldown passed → pyautogui.click().
+
 ```text
 MIT License
 Copyright (c) 2026 Aryan Bhalsing
 ```
+
+
+---
+
+### 📫 Contact & Socials
+
+<p align="center">
+  <a href="mailto:aryanbhalsing7090@gmail.com">
+    <img src="https://img.shields.io/badge/Email-aryanbhalsing7090%40gmail.com-red?style=for-the-badge&logo=gmail" />
+  </a>
+  <a href="https://www.linkedin.com/in/iamaryanbhalsing">
+    <img src="https://img.shields.io/badge/LinkedIn-iamaryanbhalsing-blue?style=for-the-badge&logo=linkedin" />
+  </a>
+  <a href="https://github.com/iamaryanbhalsing">
+    <img src="https://img.shields.io/badge/GitHub-iamaryanbhalsing-black?style=for-the-badge&logo=github" />
+  </a>
+  <a href="https://leetcode.com/iamaryanbhalsing">
+    <img src="https://img.shields.io/badge/LeetCode-Profile-orange?style=for-the-badge&logo=leetcode" />
+  </a>
+</p>
+
+---
+
+<p align="center">
+  <img src="https://komarev.com/ghpvc/?username=iamaryanbhalsing&label=Profile%20views&color=0e75b6&style=flat" alt="Profile views" />
+</p>
