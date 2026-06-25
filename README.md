@@ -94,7 +94,7 @@ in the **same folder** as `hand_mouse.py`.
 1. Clone this repository:
 
 ```bash
-git clone https://github.com/<your-username>/hand-gesture-virtual-mouse.git
+git clone https://github.com/iamaryanbhalsing/hand-gesture-virtual-mouse
 cd hand-gesture-virtual-mouse
 ```
 
