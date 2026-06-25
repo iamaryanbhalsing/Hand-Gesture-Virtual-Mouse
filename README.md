@@ -91,6 +91,25 @@ in the **same folder** as `hand_mouse.py`.
 
 ## How to run
 
+## Requirements
+
+- Python 3.9 or higher
+- A webcam (built-in or external)
+- Windows (tested), but should also work on Linux/macOS with minor changes
+
+Python packages:
+
+- opencv-python
+- mediapipe
+- pyautogui
+- numpy
+
+Install them with:
+
+```bash
+pip install opencv-python mediapipe pyautogui numpy
+```
+
 1. Clone this repository:
 
 ```bash
