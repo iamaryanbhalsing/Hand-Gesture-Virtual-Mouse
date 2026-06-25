@@ -160,7 +160,7 @@ You can easily extend this:
 The result is a fast, intuitive virtual mouse controlled entirely by hand gestures.
 
 
-Imports:
+# Imports:
 
 cv2 for webcam and drawing.
 
@@ -170,13 +170,13 @@ pyautogui to control the mouse cursor (move, click).
 
 mediapipe and mediapipe.tasks for hand tracking and landmarks.
 
-Model loading:
+# Model loading:
 
 Read hand_landmarker.task into memory (model_asset_buffer), then create a HandLandmarker detector.
 
 This is the official way to run the Hand Landmarker task in Python.
 
-Main loop:
+# Main loop:
 
 Capture frame, flip, convert to RGB.
 
@@ -184,7 +184,7 @@ Run detect_for_video to get hand landmarks.
 
 Use landmark 8 as the cursor fingertip and landmark 4 as the thumb fingertip.
 
-Coordinate mapping:
+# Coordinate mapping:
 
 Take camera coordinates (x, y) from the index fingertip.
 
@@ -192,7 +192,7 @@ Clamp them to a central box (to increase sensitivity).
 
 Use np.interp to map that box to full screen width and height.
 
-Smoothing and movement:
+# Smoothing and movement:
 
 alpha_x and alpha_y create a weighted average between old and new positions (exponential smoothing).
 
@@ -202,7 +202,7 @@ Vertical uses lower alpha_y → smoother, less jitter.
 
 Call pyautogui.moveTo(curr_x, curr_y) to move the OS cursor.
 
-Gesture detection:
+# Gesture detection:
 
 Compute Euclidean distance between thumb and index fingertip.
 
